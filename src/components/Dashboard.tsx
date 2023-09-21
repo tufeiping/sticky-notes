@@ -41,14 +41,18 @@ const Dashboard = () => {
       <div className="hint-block" onDoubleClick={handleStopPropagation}>
         <img className="logo-img" src="/sticky-notes.ico" alt="" />
         <span>double-click on any blank space to create a card. </span>
-        {/* <a href="https://github.com/justmemos/sticky-notes">
-          <img src="https://img.shields.io/github/stars/usememos/sticky-notes" alt="" />
-        </a> */}
       </div>
       <Toolbar />
       {noteList.map((note) => {
         return <StickyCard key={`${note.id}`} note={note} />;
       })}
+      <div className="footer">
+        <div className="footer-content">
+          <a href="https://github.com/justmemos/sticky-notes" target="_blank">
+            <img src="https://img.shields.io/github/stars/usememos/sticky-notes" alt="" />forked from justmemos/sticky-notes
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
