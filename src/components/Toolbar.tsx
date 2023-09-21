@@ -47,16 +47,29 @@ const Toolbar = () => {
     }
   }, [globalState.draggingNote]);
 
+  const handleSaveMouseUp = useCallback(() => {
+
+  }, [globalState.draggingNote]);
+
   const handleTrashClick = useCallback(() => {
     dispatch(setShowTrashDialogFlag(!globalState.showTrashDialogFlag));
   }, [globalState.showTrashDialogFlag]);
 
   return (
-    <div className={`toolbar-container opacity-80 ${globalState.draggingNote ? "z-10" : ""}`} onDoubleClick={handleStopPropagation}>
+    <div className={`toolbar-container opacity-80 ${globalState.draggingNote ? "z-10" : ""}`} title="Add new note" onDoubleClick={handleStopPropagation}>
       <span className="action-btn" onClick={handleNewCardButtonClick}>
         📝
       </span>
-      <span className="action-btn trash-bin" onClick={handleTrashClick} onMouseUp={handleTrashMouseUp}>
+      <span className="action-btn" title="Save notes to remote" onClick={() => { }} onMouseUp={handleSaveMouseUp}>
+        💾
+      </span>
+      <span className="action-btn" title="Restore notes from remote" onClick={() => { }} onMouseUp={handleTrashMouseUp}>
+        ➡️
+      </span>
+      <span className="action-btn" title="Settings" onClick={() => { }}>
+        ⚙️
+      </span>
+      <span className="action-btn trash-bin" title="Trash of notes" onClick={handleTrashClick} onMouseUp={handleTrashMouseUp}>
         🗑
       </span>
     </div>
