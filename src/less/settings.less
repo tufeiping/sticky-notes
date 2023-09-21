@@ -1,0 +1,98 @@
+.settings-wrapper {
+  @apply z-20 absolute top-16 w-128 max-w-full p-0 border rounded-md shadow-dialog flex flex-col justify-center items-center bg-gray-50 transition-all select-none;
+
+  >.dialog-header {
+    @apply w-full flex flex-row justify-between items-center p-2 border-b;
+
+    >.title-text {
+      @apply text-lg;
+    }
+
+    >.btns-container {
+      @apply flex flex-row justify-end items-center;
+
+      >.btn {
+        @apply border rounded p-1 px-2 text-sm cursor-pointer hover:border-black;
+      }
+    }
+  }
+
+  >.dialog-content {
+    @apply w-full p-2 grid gap-2 grid-cols-2;
+
+    >.tip-text {
+      @apply col-span-2 text-gray-600 text-base;
+
+      >.icon-text {
+        @apply text-lg;
+      }
+    }
+
+    >.empty-text {
+      @apply text-center py-12 col-span-2;
+    }
+  }
+
+  .settings-close-btn {
+    float: right;
+    cursor: pointer;
+  }
+
+  .settings-header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .settings-container {
+    width: 90%;
+  }
+
+  .settings-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .settings-item-title {
+      display: block;
+    }
+
+    .settings-item-input {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+      &:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+    }
+
+    .settings-item-btn {
+      display: block;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+      background-color: #007acc;
+      color: #fff;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #0062a3;
+      }
+    }
+  }
+}

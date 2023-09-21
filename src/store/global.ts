@@ -3,12 +3,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface GlobalState {
   showTrashDialogFlag: boolean;
   draggingNote?: Note;
+  showSettingDialogFlag: boolean;
 }
 
 const getInitialState = (): GlobalState => {
   return {
     showTrashDialogFlag: false,
     draggingNote: undefined,
+    showSettingDialogFlag: false,
   };
 };
 
@@ -22,9 +24,12 @@ export const globalStoreSlice = createSlice({
     setDraggingNote: (state, action: PayloadAction<Note | undefined>) => {
       state.draggingNote = action.payload;
     },
+    setSettingDialogFlag: (state, action: PayloadAction<boolean>) => {
+      state.showSettingDialogFlag = action.payload;
+    },
   },
 });
 
-export const { setShowTrashDialogFlag, setDraggingNote } = globalStoreSlice.actions;
+export const { setShowTrashDialogFlag, setDraggingNote, setSettingDialogFlag } = globalStoreSlice.actions;
 
 export default globalStoreSlice.reducer;

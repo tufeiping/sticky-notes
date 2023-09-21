@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../store";
-import { setShowTrashDialogFlag } from "../store/global";
+import { setShowTrashDialogFlag, setSettingDialogFlag } from "../store/global";
 import { addNote, updateNoteById } from "../store/note";
 import "../less/toolbar.less";
 
@@ -51,6 +51,10 @@ const Toolbar = () => {
 
   }, [globalState.draggingNote]);
 
+  const handleSettingClick = useCallback(() => {
+    dispatch(setSettingDialogFlag(!globalState.showSettingDialogFlag));
+  }, [globalState.showSettingDialogFlag]);
+
   const handleTrashClick = useCallback(() => {
     dispatch(setShowTrashDialogFlag(!globalState.showTrashDialogFlag));
   }, [globalState.showTrashDialogFlag]);
@@ -66,7 +70,7 @@ const Toolbar = () => {
       <span className="action-btn" title="Restore notes from remote" onClick={() => { }} onMouseUp={handleTrashMouseUp}>
         ➡️
       </span>
-      <span className="action-btn" title="Settings" onClick={() => { }}>
+      <span className="action-btn" title="Settings" onClick={handleSettingClick}>
         ⚙️
       </span>
       <span className="action-btn trash-bin" title="Trash of notes" onClick={handleTrashClick} onMouseUp={handleTrashMouseUp}>
